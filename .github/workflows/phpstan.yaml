@@ -14,4 +14,5 @@ jobs:
       - name: PHPStan Static Analysis
         uses: php-actions/phpstan@master
         with:
-          path: app/ resources/ routes/ tests/
+          configuration: phpstan.neon
+          memory_limit: 256M
