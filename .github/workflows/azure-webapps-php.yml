@@ -74,6 +74,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
+          cache: 'npm'
       
       - name: Create Assets
         run: npm install && npm run production
