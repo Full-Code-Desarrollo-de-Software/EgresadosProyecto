@@ -16,10 +16,14 @@ class CreatePreguntasTable extends Migration
         Schema::create('preguntas', function (Blueprint $table) {
             $table->id();
 
-            $table->string('pregunta');
+            $table->string('pregunta', 400);
             $table->unsignedBigInteger('categoria_id');
+            $table->unsignedBigInteger('parent_id')->nullable(true);
+
 
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+            $table->foreign('parent_id')->references('id')->on('preguntas')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

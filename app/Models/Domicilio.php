@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Domicilio extends Model
 {
+    protected $guarded = ['id'];
+
     use HasFactory;
+
+    public function egresado (){
+        return $this->belongsTo('App\Models\Egresado', 'egresado_id');;
+    }
 }

@@ -7,13 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Respuesta extends Model
 {
+    protected $guarded = ['id'];
+
     use HasFactory;
 
-    public function egresado (){
-        return $this->belongsTo('App\Models\Egresado', 'egresado_id');
+    public function egresados()
+    {
+        return $this->belongsToMany('App\Models\Egresado', 'egresado_id');
     }
 
-    public function pregunta (){
-        return $this->belongsTo('App\Models\Pregunta', 'pregunta_id');
+    public function pregunta()
+    {
+        return $this->belongsTo('App\Models\Pregunta', 'id');
     }
 }

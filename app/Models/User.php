@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -58,4 +57,15 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    public function egresado()
+    {
+        return $this->hasOne('App\Models\Egresado');
+    }
+
+    public function encuestas()
+    {
+        return $this->hasMany(Encuesta::class, 'user_id');
+    }
 }
