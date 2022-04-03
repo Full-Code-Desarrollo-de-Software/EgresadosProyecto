@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Encuesta;
 use App\Models\service\EncuestaService;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -21,14 +20,7 @@ class EncuestaController extends Controller
             'store',
         ]]);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-    }
+  
 
     /**
      * Show the form for creating a new resource.
@@ -55,16 +47,6 @@ class EncuestaController extends Controller
         return redirect(route('inicio'))->with('mensaje', 'Se ha realizado la encuesta satisfactoriamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     public function mine()
     {
