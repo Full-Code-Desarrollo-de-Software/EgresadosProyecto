@@ -56,7 +56,7 @@ return [
             'collation' => 'utf8_general_ci',
             'prefix' => '',
             'prefix_indexes' => true,
-            'strict' => true,
+            'strict' => false,
             'engine' => null,
             'sslmode' => env('DB_SSLMODE', 'prefer'),
             'options' => (env('MYSQL_SSL') && extension_loaded('pdo_mysql')) ? array_filter([
