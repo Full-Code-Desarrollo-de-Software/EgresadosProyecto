@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\admin\CategoriaController;
 use App\Http\Controllers\Admin\EncuestaController;
 use App\Models\Pregunta;
 use App\Models\Respuesta;
+use Barryvdh\DomPDF\Facade;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -27,33 +30,53 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/inicio', function () {
     return view('dashboard');
 })->name('inicio');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
+    return view('admin.home');
+})->name('admin-home');
+
+
 /* DB::listen(function ($query) {
     echo "<pre>{$query->sql}</pre>";
 });
  */
+
 Route::resource('/encuestas', EncuestaController::class, ['except' => ['edit', 'update', 'destroy']])
     ->parameters(['encuesta' => 'encuesta'])
     ->names('encuestas');
 
-Route::get('/mis-encuestas','App\Http\Controllers\Admin\EncuestaController@mine')->name('encuestas.mine');
-Route::get('/mis-encuestas/{year}','App\Http\Controllers\Admin\EncuestaController@showMine')->name('encuestas.show.mine');
-    Route::get('/pregunta/{year}/{pregunta}', function ($year, $pregunta) {
-        $find = Pregunta::findOrFail($pregunta);
-        $preguntaEncontrada = $find->pregunta;
-        $respuestas = $find->statsRespuestas($year);
-        return view('grafico', compact('respuestas', 'preguntaEncontrada'));
-    });
-    
-    Route::get('/pregunta/{pregunta}', function ($pregunta) {
-        $find = Pregunta::findOrFail($pregunta);
-        $preguntaEncontrada = $find->pregunta;
-        $respuestas = $find->statsRespuestas();
-    
-        return view('grafico', compact('respuestas', 'preguntaEncontrada'));
-    });
+Route::resource('/admin/categorias', CategoriaController::class)
+    ->parameters(['categoria' => 'categoria'])
+    ->names('admin.categorias');
+ 
 
-Route::get('/pruebafinal', 'App\Http\Controllers\Admin\EncuestaController@create');
-Route::post('/prueba', 'App\Http\Controllers\Admin\EncuestaController@store')->name('guardar');
-Route::get('/grafico', 'App\Http\Controllers\Admin\EncuestaController@show');
+Route::get('/mis-encuestas', 'App\Http\Controllers\Admin\EncuestaController@mine')
+    ->name('encuestas.mine');
 
+Route::get('/mis-encuestas/{year}', 'App\Http\Controllers\Admin\EncuestaController@showMine')
+    ->name('encuestas.show.mine');
+
+//GRAFICAS
+Route::get('/graficas', 'App\Http\Controllers\Admin\GraficaController@index')->name('admin.graficas.index');   
+
+Route::get('/pregunta/{year}/{pregunta}', function ($year, $pregunta) {
+    $find = Pregunta::findOrFail($pregunta);
+    $preguntaEncontrada = $find->pregunta;
+    $respuestas = $find->statsRespuestas($year);
+    return view('grafico', compact('respuestas', 'preguntaEncontrada'));
+});
+
+Route::get('/pregunta/{pregunta}', function ($pregunta) {
+    $find = Pregunta::findOrFail($pregunta);
+    $preguntaEncontrada = $find->pregunta;
+    $respuestas = $find->statsRespuestas();
+
+    return view('grafico', compact('respuestas', 'preguntaEncontrada'));
+});
+
+
+/* Route::get('/pdf', function () {
+    $preguntasSeleccionadas=[1,2,3,4];
+    $pdf = PDF::loadView('admin.graficas.reporte', compact('preguntasSeleccinadas'));
+    return $pdf->download('invoice.pdf');
+}); */
 

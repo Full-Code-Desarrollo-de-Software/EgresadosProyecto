@@ -1,0 +1,283 @@
+{
+  "id": "6e1da304-f6a8-416d-974e-7c4634b37da8",
+  "version": "2.0",
+  "name": "HU-10",
+  "url": "http://127.0.0.1:8001",
+  "tests": [{
+    "id": "fdb6990a-39e4-4f3c-8f43-b2ab2a5f9a2a",
+    "name": "Prueba Generar Graficas",
+    "commands": [{
+      "id": "6797bd0d-3073-4112-b809-25d8afcde8a1",
+      "comment": "",
+      "command": "open",
+      "target": "/graficas",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "32bdc2db-a2eb-4d4c-99bd-51395f2f23f7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x784",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e3c67a27-57cf-4cf4-a651-292c9dafde98",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=.col-md-6 > .d-flex > .form-control", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "488bcb83-8f52-4175-95cb-9697a939c9fd",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=1 - PERTINENCIA Y DISPONIBILIDAD DE MEDIOS Y RECURSOS PARA EL APRENDIZAJE"
+    }, {
+      "id": "e204d9e0-7dcc-42f6-8be5-7c2fd850cab3",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "df1fdc80-83dd-4c97-81a5-29b9e64707b9",
+      "comment": "",
+      "command": "click",
+      "target": "name=question",
+      "targets": [
+        ["name=question", "name"],
+        ["css=.d-flex:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//select[@name='question']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7d8af560-7089-4c0f-ac29-b17b46439973",
+      "comment": "",
+      "command": "select",
+      "target": "name=question",
+      "targets": [],
+      "value": "label=1 - Calidad de los docentes:"
+    }, {
+      "id": "030ab91a-2369-451f-bb5e-d0d9c7c8bf9b",
+      "comment": "",
+      "command": "click",
+      "target": "name=year",
+      "targets": [
+        ["name=year", "name"],
+        ["css=.p-0", "css:finder"],
+        ["xpath=//select[@name='year']", "xpath:attributes"],
+        ["xpath=//div[3]/div/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "98fa8e5e-454d-40d3-9c25-905cc399b7a1",
+      "comment": "",
+      "command": "select",
+      "target": "name=year",
+      "targets": [],
+      "value": "label=2021"
+    }, {
+      "id": "1b717202-e8e7-49e5-aeaa-50609512f70c",
+      "comment": "",
+      "command": "click",
+      "target": "name=year",
+      "targets": [
+        ["name=year", "name"],
+        ["css=.p-0", "css:finder"],
+        ["xpath=//select[@name='year']", "xpath:attributes"],
+        ["xpath=//div[3]/div/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "207bea90-9236-49e4-b7d3-e2317652564a",
+      "comment": "",
+      "command": "select",
+      "target": "name=year",
+      "targets": [],
+      "value": "label=Todos"
+    }, {
+      "id": "99d25943-c05a-471b-9698-bd0c35598aa8",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c52fe9b2-49d4-466f-b0c5-10f940e8a4b5",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=.col-md-6 > .d-flex:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce1e297f-e246-45c1-8ce5-cb9ced8d47ab",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=3 - DESEMPEÑO PROFESIONAL DE LOS EGRESADOS (COHERENCIA ENTRE LA FORMACIÓN Y EL TIPO DE EMPLEO)"
+    }, {
+      "id": "c48d849c-d86d-48da-a98d-334aef3ea3e5",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=.col-md-6 > .d-flex:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f0aaf7c1-f217-4aed-a84e-a83cff17e33c",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=1 - PERTINENCIA Y DISPONIBILIDAD DE MEDIOS Y RECURSOS PARA EL APRENDIZAJE"
+    }, {
+      "id": "6c15e3db-10b5-49f1-8c0b-465f37e479b7",
+      "comment": "",
+      "command": "click",
+      "target": "name=question",
+      "targets": [
+        ["name=question", "name"],
+        ["css=.d-flex:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//select[@name='question']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4bd2e46b-c45e-40d1-9c10-1ee47eb9f852",
+      "comment": "",
+      "command": "select",
+      "target": "name=question",
+      "targets": [],
+      "value": "label=3 - Oportunidad de participar en proyectos de investigación y desarrollo:"
+    }, {
+      "id": "14bb787a-4f52-4851-a349-efb06413a790",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e0e189ff-3e08-4e85-aaa1-b6eedc7ce125",
+      "comment": "",
+      "command": "click",
+      "target": "name=year",
+      "targets": [
+        ["name=year", "name"],
+        ["css=.p-0", "css:finder"],
+        ["xpath=//select[@name='year']", "xpath:attributes"],
+        ["xpath=//div[3]/div/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "545ec5f0-d3e4-4f40-8643-1db3343938a7",
+      "comment": "",
+      "command": "select",
+      "target": "name=year",
+      "targets": [],
+      "value": "label=2022"
+    }, {
+      "id": "3f3118d2-0b5b-402e-b85c-bc5144cbdd74",
+      "comment": "",
+      "command": "click",
+      "target": "name=year",
+      "targets": [
+        ["name=year", "name"],
+        ["css=.p-0", "css:finder"],
+        ["xpath=//select[@name='year']", "xpath:attributes"],
+        ["xpath=//div[3]/div/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "52c5345e-6da4-4396-bc5c-8267445c4dfc",
+      "comment": "",
+      "command": "select",
+      "target": "name=year",
+      "targets": [],
+      "value": "label=2021"
+    }, {
+      "id": "1dd68532-04dc-4833-bfeb-15b18866aa85",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3:nth-child(3)",
+      "targets": [
+        ["css=.col-md-3:nth-child(3)", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "88bef78f-1acc-48a6-9193-02e2c34f8840",
+      "comment": "",
+      "command": "click",
+      "target": "css=.custom-control-label",
+      "targets": [
+        ["css=.custom-control-label", "css:finder"],
+        ["xpath=//label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "189a581f-516f-469f-9fa7-4a02d509b4b1",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "52b6418d-83be-4138-baa7-035a1af91c16",
+      "comment": "",
+      "command": "click",
+      "target": "css=.custom-control-label",
+      "targets": [
+        ["css=.custom-control-label", "css:finder"],
+        ["xpath=//label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8fe6e158-9adc-4721-a234-6fa0788ae45d",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=.col-md-6 > .d-flex:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2123f99d-0105-4d52-ac57-a53041015bf5",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=Todas"
+    }]
+  }],
+  "suites": [{
+    "id": "bfb7fa1a-080a-423b-bbd7-e4e4bad238b4",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["fdb6990a-39e4-4f3c-8f43-b2ab2a5f9a2a"]
+  }],
+  "urls": ["http://127.0.0.1:8001/"],
+  "plugins": []
+}
