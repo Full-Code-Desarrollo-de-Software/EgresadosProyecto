@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Encuesta;
 use App\Models\service\EncuestaService;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -51,7 +52,7 @@ class EncuestaController extends Controller
     public function mine()
     {
         $encuestas = $this->encuestaService->getEncuestasByUserAuth();
-     
+    
         return view('egresados.encuestas.mine', compact('encuestas'));
     }
     public function showMine($year)
