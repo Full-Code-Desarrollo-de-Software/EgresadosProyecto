@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Categorias')
+@section('title', 'preguntas')
 
 @section('content_header')
-    <h1>Categorias</h1>
+    <h1>Preguntas</h1>
 @stop
 
 @section('content')
@@ -11,16 +11,16 @@
         <div class="container-fluid">
             <div class="card-customize">
                 <div class="card-header ">
-                    <h2>Tabla de Categorias</h2>
-                    <a class="btn btn-primary float-right" href="{{ route('admin.categorias.create') }}">Crear
-                        Categoria</a>
+                    <h2>Tabla de Preguntas</h2>
+                    <a class="btn btn-primary float-right" href="{{ route('admin.preguntas.create') }}">Crear
+                        Pregunta</a>
                 </div>
                 <div class="card-body">
-                    <table id="tabla-categorias" class="table table-bordered table-hover prueba">
+                    <table id="tabla-preguntas" class="table table-bordered table-hover">
                         <thead>
                             <th>ID</th>
-                            <th style="width: 50%">Categoria</th>
-                            <th>Preguntas</th>
+                            <th>Pregunta</th>
+                            <th>Respuestas</th>
                             <th>Acciones</th>
                         </thead>
                     </table>
@@ -41,27 +41,26 @@
     <script>
         //PARA EL INDEX Y CARGAR LA TABLA
         $(document).ready(function() { //se eejcuta al inicio
-            var tablaCategoria = $('#tabla-categorias').DataTable({ //inicializa la tabla
+            var tablaPreguntas = $('#tabla-preguntas').DataTable({ //inicializa la tabla
                 searchDelay: 1000,
                 porcessing: true,
                 serverSide: true,
                 responsive: true,
-                autoWidth: true,
+                autoWidth: false,
                 scrollX: true,
                 scrollCollapse: true,
-                ajax: { //la peticion ajax mandara al servidor y el servidor da como respuesta los $categoriases y los botones
-                    url: "{{ route('admin.categorias.index') }}",
+                ajax: { //la peticion ajax mandara al servidor y el servidor da como respuesta las $preguntas y los botones
+                    url: "{{ route('admin.preguntas.index', $id) }}",
                 },
-                columns: [ //pone los datos en cada  columna x cada categoriasl (raw)
+                columns: [ //pone los datos en cada  columna x cada pregunta (raw)
                     {
                         data: 'id'
                     },
                     {
-                        data: 'categoria'
+                        data: 'pregunta'
                     },
                     {
-                        data: 'preguntas',
-                        orderable: false
+                        data: 'preguntas'
                     },
                     {
                         data: 'acciones',
@@ -83,7 +82,7 @@
         $('#btnEliminar').click(function() { //si enseguida se presiona el btn eliminar
 
             $.ajax({ //Mando la peticion ajax
-                url: "categorias/eliminar/" + ani_id,
+                url: "preguntas/eliminar/" + ani_id,
                 beforeSend: function() { //funcion para que el boton aparezca eliminando
                     $('#btnEliminar').text('Eliminado...');
                 },
@@ -94,10 +93,10 @@
                         //PAra mostrar mensaje de toast
                         Swal.fire(
                             'Correcto!',
-                            'Se ha eliminado la categoria!',
+                            'Se ha eliminado la pregunta!',
                             'success'
                         )
-                        $('#tabla-categorias').DataTable().ajax
+                        $('#tabla-preguntas').DataTable().ajax
                             .reload(); //Cuando se elimine el animal que se actualice la tabla
                     }, 1000); // 2 segundos de eliminacion
                     $('#btnEliminar').text('Eliminar');

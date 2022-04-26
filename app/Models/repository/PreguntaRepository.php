@@ -30,4 +30,6 @@ class PreguntaRepository extends Repository
         ->whereYear('egresado_respuesta.created_at', $year)
         ->get()->toArray();
     }
+
+    
 }

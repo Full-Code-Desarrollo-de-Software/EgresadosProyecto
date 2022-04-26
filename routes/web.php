@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CategoriaController;
 use App\Http\Controllers\Admin\EncuestaController;
+use App\Http\Controllers\Admin\PreguntaController;
 use App\Models\Pregunta;
 use App\Models\Respuesta;
 use Barryvdh\DomPDF\Facade;
@@ -44,11 +45,21 @@ Route::resource('/encuestas', EncuestaController::class, ['except' => ['edit', '
     ->parameters(['encuesta' => 'encuesta'])
     ->names('encuestas');
 
-Route::resource('/admin/categorias', CategoriaController::class)
+//Categorias
+Route::resource('/admin/categorias', CategoriaController::class,  ['except' => ['show', 'destroy']])
     ->parameters(['categoria' => 'categoria'])
     ->names('admin.categorias');
- 
+Route::get('/admin/categorias/eliminar/{id}', 'App\Http\Controllers\Admin\CategoriaController@destroyCategoria')->name('admin.categorias.eliminar');
 
+//Preguntas
+Route::get('/admin/categorias/preguntas/{id}', 'App\Http\Controllers\Admin\PreguntaController@index')->name('admin.preguntas.index'); 
+Route::resource('/admin/categorias/preguntas', PreguntaController::class,  ['except' => ['show', 'destroy', 'index']])
+    ->parameters(['pregunta' => 'pregunta'])
+    ->names('admin.preguntas');
+
+Route::get('/admin/preguntas/eliminar/{id}', 'App\Http\Controllers\Admin\PreguntaController@destroyPregunta')->name('admin.preguntas.eliminar');
+
+//
 Route::get('/mis-encuestas', 'App\Http\Controllers\Admin\EncuestaController@mine')
     ->name('encuestas.mine');
 
@@ -79,4 +90,3 @@ Route::get('/pregunta/{pregunta}', function ($pregunta) {
     $pdf = PDF::loadView('admin.graficas.reporte', compact('preguntasSeleccinadas'));
     return $pdf->download('invoice.pdf');
 }); */
-

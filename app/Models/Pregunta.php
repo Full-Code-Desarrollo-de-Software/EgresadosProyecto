@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class Pregunta extends Model
 {
+    protected $withCount = ['respuestas'];
     protected $guarded = ['id'];
     const OPCIONMULTIPLE = 1;
     const PREGUNTAMULTIPLE = 2;

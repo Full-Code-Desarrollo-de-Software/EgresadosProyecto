@@ -31,4 +31,14 @@ class Repository
     {
         $this->model->create($request);
     }
+
+    public function getAll()
+    {
+        return $this->model::all();
+    }
+   
+    public function findOrError($id)
+    {
+        return $this->model::findOrFail($id);
+    }
 }
