@@ -12,4 +12,9 @@ class CategoriaRepository extends Repository
     {
         parent::__construct($categoria, self::QUERY);
     }
+
+    public function getPreguntas($id)
+    {
+        return $this->findOrError($id)->preguntas;
+    }
 }
