@@ -49,7 +49,7 @@ Route::resource('/encuestas', EncuestaController::class, ['except' => ['edit', '
 Route::resource('/admin/categorias', CategoriaController::class,  ['except' => ['show', 'destroy']])
     ->parameters(['categoria' => 'categoria'])
     ->names('admin.categorias');
-Route::get('/admin/categorias/eliminar/{id}', 'App\Http\Controllers\Admin\CategoriaController@destroy')->name('admin.categorias.eliminar');
+Route::get('/admin/categorias/eliminar/{id}', 'App\Http\Controllers\Admin\CategoriaController@destroyCategoria')->name('admin.categorias.eliminar');
 
 //Preguntas
 Route::get('/admin/categorias/preguntas/{id}', 'App\Http\Controllers\Admin\PreguntaController@index')->name('admin.preguntas.index'); 
@@ -57,7 +57,7 @@ Route::resource('/admin/categorias/preguntas', PreguntaController::class,  ['exc
     ->parameters(['pregunta' => 'pregunta'])
     ->names('admin.preguntas');
 
-Route::get('/admin/preguntas/eliminar/{id}', 'App\Http\Controllers\Admin\PreguntaController@destroy')->name('admin.preguntas.eliminar');
+Route::get('/admin/preguntas/eliminar/{id}', 'App\Http\Controllers\Admin\PreguntaController@destroyPregunta')->name('admin.preguntas.eliminar');
 
 //
 Route::get('/mis-encuestas', 'App\Http\Controllers\Admin\EncuestaController@mine')
